@@ -15,6 +15,7 @@ export default class Header extends Component {
                         <li className="list-inline-item"><Link to="/">Home</Link></li>
                         <li className="list-inline-item"><Link to="/About">About</Link></li>
                         <li className="list-inline-item"><Link to="/Product">Product</Link></li>
+                        <li className="list-inline-item"><Link to="/Movies">Movies</Link></li>
                     </ul>
                 </div>
             </div>

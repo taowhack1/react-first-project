@@ -1,15 +1,44 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-export default class Movies extends Component {
+import {movieFetchs,movieFetch} from '../../Actions'
+import {connect} from 'react-redux'
+import MoviesList from './MoviesList'
+
+class Movies extends Component {
+    constructor(props){
+        super(props)
+    }
     componentDidMount(){
-        //this.props.moviesFetch();
+        this.props.movieFetchs();
     }
     render() {
-    
         return (
             <div>
-                {/* https://api.themoviedb.org/3/movie/343611?api_key=7d50a74aa7b2ec46275cb1b2b6d2925e&append_to_response=videos */}
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-md-6">
+                            Movies
+                        </div>
+                        <div className="col-md-6">
+                            <button
+                                className="btn btn-success float-right"
+                                >
+                                    New
+                            </button>
+                        </div>
+                    </div>
+                    {
+                        this.props.movies && Array.isArray(this.props.movies) && (
+                            <MoviesList
+                                movies={this.props.movies}
+                            />
+                        )
+                    }
+                </div>
             </div>
         )
     }
 }
+function mapStateToProps({movies}){
+    return {movies}
+}
+export default connect(mapStateToProps,{movieFetch,movieFetchs})(Movies)
