@@ -4,7 +4,8 @@ import {MOVIE_FETCHS,MOVIE_FETCH} from './type'
 export const movieFetchs = () => {
     return dispatch =>{
         axios.get("http://localhost:3001/movies").then(res=>{
-            dispatch({ type : MOVIE_FETCHS , payload : res.data})
+            dispatch({ type : "movie_fetchs" , payload : res.data})
+            
         })
     }
 }

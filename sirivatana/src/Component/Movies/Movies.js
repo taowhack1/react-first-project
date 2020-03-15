@@ -27,7 +27,9 @@ class Movies extends Component {
                         </div>
                     </div>
                     {
+                        
                         this.props.movies && Array.isArray(this.props.movies) && (
+                            console.log(this.props.movies[0]),
                             <MoviesList
                                 movies={this.props.movies}
                             />
